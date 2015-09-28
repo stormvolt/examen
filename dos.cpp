@@ -17,9 +17,12 @@ int main()
 {
 	int x=0;
 	int i=1;
-	while(fib(i)<=8)
+	while(fib(i)<=4000000)
 	{
-		x = x + fib(i);
+		if(x%2==0)
+		{
+			x = x + fib(i);
+		}
 		i++;
 	}
 	cout<<x;
