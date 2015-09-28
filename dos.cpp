@@ -19,7 +19,7 @@ int main()
 	int i=1;
 	while(fib(i)<=4000000)
 	{
-		if(x%2==0)
+		if(fib(i)%2==0)
 		{
 			x = x + fib(i);
 		}
