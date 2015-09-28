@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 
-int fib(int n)
+long fib(long n)
 {
 	if(n==0 || n==1)
 	{
@@ -15,7 +15,7 @@ int fib(int n)
 
 int main()
 {
-	int x=0;
+	long x=0;
 	int i=1;
 	while(fib(i)<=4000000)
 	{
