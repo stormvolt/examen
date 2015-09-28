@@ -1,38 +1,59 @@
 #include <iostream>
 using namespace std;
 
+int primos[9]={2,3,5,7,9,11,13,17,19};
 
-bool comprobar(int x)
+
+int potencia(int b, int e)
 {
-	int list[]={11,12,13,14,15,16,17,18,19,20};
-	bool es=true;
-	bool end=false;
-	int i=0;
-	while(end==false)
-	{
-		if(x%list[i]!=0)
-		{
-			es=false;
-			end=true;
-		}
-		if(i==9)
-		{
-			end=true;
-		}
-		i++;
-	}
-	return es;
+    int a=1;
+    for(int i=0; i<e; i++)
+    {
+        a=a*b;
+    }
+    return a;
 }
-			
+
+
+
+void factor(int x, int*ptr)
+{
+    int i=0;
+    while(x!=1)
+    {
+        if(x%primos[i]==0)
+        {
+            int j=0;
+                while(x%primos[i]==0)
+                {
+                    x=x/primos[i];
+                    j++;
+                }
+            if(*(ptr+i)<j)
+            {
+                *(ptr+i)=j;
+            }
+        }
+        else
+        {
+            i++;
+        }
+    }
+}
+
 int main()
 {
-	bool end=false;
-	int x=20;
-	while(end==false)
-	{
-		x++;
-		end=comprobar(x);
-	}
-	cout<<x;
+    int mcm[9]={0,0,0,0,0,0,0,0,0};
+    int *ptr;
+    ptr=mcm;
+    int resultado=1;
+    for(int i=1; i<=20; i++)
+    {
+        factor(i, ptr);
+    }
+    for(int j=0; j<9; j++)
+    {
+        resultado=resultado * potencia(primos[j], mcm[j]);
+    }
+    cout<<resultado;
 }
-		
