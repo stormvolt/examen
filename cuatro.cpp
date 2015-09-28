@@ -1,12 +1,13 @@
 #include <iostream>
 #include <cstdlib>
+#define size 100
 using namespace std;
 
-void llenar(int x[100][100])
+void llenar(int x[size][size])
 {
-	for(int i=0; i<100; i++)
+	for(int i=0; i<size; i++)
 	{
-		for(int j=0; j<100; j++)
+		for(int j=0; j<size; j++)
 		{
 			srand((unsigned)time(NULL));
 			x[i][j]=rand()%20+1;
@@ -16,11 +17,11 @@ void llenar(int x[100][100])
 	
 
 
-void buscar(int x[100][100], int y)
+void buscar(int x[size][size], int y)
 {
-	for(int i=0; i<100; i++)
+	for(int i=0; i<size; i++)
 	{
-		for(int j=0; j<100; j++)
+		for(int j=0; j<size; j++)
 		{
 			if(x[i][j]==y)
 			{
@@ -35,7 +36,7 @@ void buscar(int x[100][100], int y)
 
 int main()
 {
-	int matrix[100][100];
+	int matrix[size][size];
 	llenar(matrix);
 	int x;
 	cout<<"Ingrese un numero: ";
